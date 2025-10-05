@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+
+    <main class="dashboard-grid">
+        <div class="card interaction-column">
+            <h2><i class="fa-solid fa-check-to-slot"></i> Votação e Resultados</h2>
+            <select id="realitySelector">
+                <option value="">Selecione um Reality Show</option>
+            </select>
+
+            <div id="voting-area" class="hidden-section">
+                <h3><i class="fa-solid fa-user-check"></i> Votar</h3>
+                <div id="participantsList" class="participants-grid"></div>
+                <p class="feedback-message" id="voteMessage"></p>
+            </div>
+            
+            <div id="chart-area" class="hidden-section">
+                <h3><i class="fa-solid fa-chart-line"></i> Gráfico de Votos</h3>
+                <div class="chart-container">
+                    <canvas id="voteChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="card api-tester-column">
+            <h2><i class="fa-solid fa-vial"></i> Testar Endpoints da API</h2>
+            <div class="button-grid">
+                <button data-endpoint="/api/premios">1. Prêmios</button>
+                <button data-endpoint="/api/total">2. Total de Prêmios</button>
+                <button data-endpoint="/api/audiencia">3. Total de Audiência</button>
+            </div>
+            <div class="input-action">
+                <select id="selectRealityForAge">
+                    <option value="">Selecione um Reality Show</option>
+                    </select>
+                <button id="btnIdade">4. Idade</button>
+            </div>
+            <div class="input-action">
+                <input type="number" id="inputPremioValor" placeholder="Valor Mínimo">
+                <button id="btnMaiorPremio">5. Prêmios</button>
+            </div>
+            
+            <hr class="divider">
+
+            <div class="api-results-section">
+                <h3><i class="fa-solid fa-code"></i> Retorno</h3>
+                <div class="results-container">
+                    <pre id="results-area">Aguardando uma requisição...</pre>
+                    <button id="copy-button" title="Copiar"><i class="fa-regular fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
